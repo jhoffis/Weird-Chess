@@ -2,7 +2,7 @@
 #define RESOURCELOADER_H
 
 #include <stdexcept>
-#include "src/Shader.h"
+#include "src/engine/graphics/Shader.h"
 
 struct CharImage {
     int w;

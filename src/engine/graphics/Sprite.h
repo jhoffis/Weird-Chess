@@ -2,7 +2,7 @@
 #define SPRITE_H
 
 #include "src/engine/io/Window.h"
-#include "src/Camera.h"
+#include "src/engine/graphics/Camera.h"
 
 static const float tileSize = 24.0f / 1440.0f * 14.0f;
 
