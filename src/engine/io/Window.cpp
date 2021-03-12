@@ -36,7 +36,7 @@ GLFWmonitor *Window::getCurrentMonitor(GLFWwindow *window, GLFWmonitor *monitor)
 }
 
 
-Window::Window(bool fullscreen, bool vsync) {
+Window::Window(const char *title, bool fullscreen, bool vsync) {
 
     // Set client size to one resolution lower than the current one
 
@@ -67,7 +67,7 @@ Window::Window(bool fullscreen, bool vsync) {
 //    int monitorCount = 0;
 //    GLFWmonitor **monitors = glfwGetMonitors(&monitorCount);
 
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Platformer", nullptr,nullptr);
+    window = glfwCreateWindow(WIDTH, HEIGHT, title, nullptr,nullptr);
     if (window == nullptr) {
         glfwTerminate();
         throw std::runtime_error("Failed to create the glfw window");
@@ -128,6 +128,11 @@ Window::Window(bool fullscreen, bool vsync) {
     });
     glfwMakeContextCurrent(window);
     glViewport(0, 0, WIDTH, HEIGHT);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 }
 
 void Window::mouseStateHide(bool lock) {

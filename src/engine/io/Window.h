@@ -34,7 +34,7 @@ private:
 
 public:
     inline static float WIDTH, HEIGHT;
-    Window(bool fullscreen, bool vsync);
+    Window(const char *title, bool fullscreen, bool vsync);
     ~Window();
     void setCursor(CursorType cursor);
     void setFullscreen(bool fullscreen);
